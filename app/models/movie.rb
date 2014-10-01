@@ -11,7 +11,8 @@ class Movie < ActiveRecord::Base
     presence: true
 
   validates :runtime_in_minutes,
-    numericality: { only_integer: true }
+    numericality: { only_integer: true },
+    length: { maximum: 999 }
 
   validates :description,
     presence: true
@@ -32,6 +33,30 @@ class Movie < ActiveRecord::Base
     end
   end
 
+# Search functions for title, director, and duration
+
+  scope :by_title, ->(title) { where('UPPER(title) LIKE UPPER(?)',"%#{title}%") if title }
+  scope :by_director, ->(director) { where('UPPER(director) LIKE UPPER(?)',"%#{director}%") if director }
+  scope :by_duration, ->(limit1,limit2) { where('runtime_in_minutes BETWEEN ? AND ?', limit1, limit2) if limit1 && limit2}
+
+    def self.search(title_search,director_search,duration)
+      
+      case duration
+      when 'Under 90 minutes'
+        limit = [0,90]
+      when 'between 90 and 120 minutes'
+        limit = [90,120]
+      when 'over 120 minutes'
+        limit = [120,999]
+      else
+        limit = [0,999]
+      end
+
+
+      by_title(title_search).by_director(director_search).by_duration(limit[0], limit[1])
+    end
+  
+# protected methods
 
   protected
 

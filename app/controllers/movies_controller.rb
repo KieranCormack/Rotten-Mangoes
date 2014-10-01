@@ -1,11 +1,7 @@
 class MoviesController < ApplicationController
 
   def index
-    if params[:search]
-      @movies = Movie.find(:all, :conditions => ['title LIKE ?', "%#{params[:search]}%"])
-    else
-      @movies = Movie.all
-    end
+    @movies = Movie.search(params[:title_search], params[:director_search], params[:duration])
   end
 
   def show
@@ -22,7 +18,6 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
-
     if @movie.save
       redirect_to movies_path, notice: "#{@movie.title} was submitted successfully!"
     else
@@ -32,7 +27,6 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find(params[:id])
-
     if @movie.update_attributes(movie_params)
       redirect_to movie_path(@movie)
     else

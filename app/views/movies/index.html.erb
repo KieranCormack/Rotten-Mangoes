@@ -11,7 +11,9 @@
 <% end %>
   <%= form_tag movies_path, method: :get do %>
     <p>
-      <%= text_field_tag :search, params[:search] %>
+      <%= text_field_tag :title_search, params[:title_search] %>
+      <%= text_field_tag :director_search, params[:director_search] %>
+      <%= select_tag :duration, options_for_select([[],['Under 90 minutes'], ['between 90 and 120 minutes'], ['over 120 minutes']]) %>
       <%= submit_tag "Search", :name => nil %>
     </p>
   <% end %>
