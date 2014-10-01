@@ -2,5 +2,7 @@
 <p>Find me in app/views/admin/users/index.html.erb</p>
 <%= paginate @users %>
 <% @users.each do |user| %>
-  <h2><%= link_to user.full_name, admin_user_path(user) %></h2>
+  <h2><%= link_to user.full_name, admin_user_path(user) %>  (<%= link_to "edit", edit_admin_user_path(user) %>,  <%= link_to "delete", admin_user_path(user), method: :delete, confirm: "You sure?" %>)</h2>
   <% end %>
+
+<p> <%= link_to "Add a User", new_admin_user_path %> </p>
