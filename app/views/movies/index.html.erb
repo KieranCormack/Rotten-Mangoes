@@ -1,18 +1,18 @@
 <h1>Rotten Mangoes</h1>
-<%= link_to "Submit a movie!", new_movie_path %>
-<hr>
-<% @movies.each do |movie| %>
-  <%= link_to image_tag(movie.image.thumb.to_s), movie_path(movie) %>
-  <h2><%= link_to movie.title, movie_path(movie) %></h2>
-  <h3><%= formatted_date(movie.release_date) %></h3>
-  <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-  <p><%= movie.description %></p>
-  <hr>
-<% end %>
+
+<!-- Top Bar with seach and submission form -->
   <%= form_tag movies_path, method: :get do %>
+    <p>Whacha Looking For?!(you can search for movies by director, title and duration...)</p>
     <p>
       <%= text_field_tag :search, params[:search] %>
       <%= select_tag :duration, options_for_select([[],['Under 90 minutes'], ['between 90 and 120 minutes'], ['over 120 minutes']]) %>
       <%= submit_tag "Search", :name => nil %>
+      Or you can: <%= link_to "Submit a movie!", new_movie_path %>
     </p>
   <% end %>
+<hr>
+
+<!-- Movie Display -->
+<%= render partial: 'moviewall' %>
+
+
