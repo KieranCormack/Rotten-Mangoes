@@ -1,6 +1,5 @@
 <h1>Rotten Mangoes</h1>
 <%= link_to "Submit a movie!", new_movie_path %>
-<%= session.id  %>
 <hr>
 <% @movies.each do |movie| %>
   <%= link_to image_tag(movie.image.thumb.to_s), movie_path(movie) %>
