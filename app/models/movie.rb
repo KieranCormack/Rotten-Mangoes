@@ -35,11 +35,11 @@ class Movie < ActiveRecord::Base
 
 # Search functions for title, director, and duration
 
-  scope :by_title, ->(title) { where('UPPER(title) LIKE UPPER(?)',"%#{title}%") if title }
-  scope :by_director, ->(director) { where('UPPER(director) LIKE UPPER(?)',"%#{director}%") if director }
+  scope :by_title_director, ->(search) { where('UPPER(title) LIKE UPPER(?) OR UPPER(director) LIKE UPPER(?)',"%#{search}%","%#{search}%") if search }
+  # scope :by_director, ->(director) { where('UPPER(director) LIKE UPPER(?)',"%#{director}%") if director }
   scope :by_duration, ->(limit1,limit2) { where('runtime_in_minutes BETWEEN ? AND ?', limit1, limit2) if limit1 && limit2}
 
-    def self.search(title_search,director_search,duration)
+    def self.search(search, duration)
       
       case duration
       when 'Under 90 minutes'
@@ -52,8 +52,8 @@ class Movie < ActiveRecord::Base
         limit = [0,999]
       end
 
-
-      by_title(title_search).by_director(director_search).by_duration(limit[0], limit[1])
+      by_title_director(search).by_duration(limit[0], limit[1])
+    
     end
   
 # protected methods

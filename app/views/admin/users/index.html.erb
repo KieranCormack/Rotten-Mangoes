@@ -3,6 +3,7 @@
 <%= paginate @users %>
 <% @users.each do |user| %>
   <h2><%= link_to user.full_name, admin_user_path(user) %>  (<%= link_to "edit", edit_admin_user_path(user) %>,  <%= link_to "delete", admin_user_path(user), method: :delete, confirm: "You sure?" %>)</h2>
+  <h4> <%=  link_to "User's profile", admin_impersonator_path(:user_id => user.id), method: :post %></h4>
   <% end %>
 
 <p> <%= link_to "Add a User", new_admin_user_path %> </p>
