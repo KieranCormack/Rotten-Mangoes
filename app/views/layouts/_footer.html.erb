@@ -1,12 +1,17 @@
 <footer>
-  <small>
-    <% if current_user %>
-      Signed in as <%= current_user.full_name %> (<%= link_to "Log out", session_path("current"), method: :delete %>)
-      <% if admin? %>
-        <%= link_to "Admin Management", admin_users_path %>
-      <% end %>
-    <% else %>
-      <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
-    <% end %>
-  </small>
+  <div class='row'>
+      <div class='well'>
+        <small>
+          <% if current_user %>
+            Signed in as <%= current_user.full_name %> (<%= link_to "Log out", session_path("current"), method: :delete %>)
+            <% if admin? %>
+              <%= link_to "Admin Management", admin_users_path %>
+            <% end %>
+          <% else %>
+            <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
+          <% end %>
+        </small>
+      </div>
+    </div>
+  </div>
 </footer>

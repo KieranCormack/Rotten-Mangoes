@@ -1,3 +1,40 @@
 // Place all the styles related to the movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#search {
+  width:20%;
+  margin: 0 auto;
+  display: inline;
+}
+
+.header-div{
+  // background-image: -webkit-gradient(
+  // linear, left top, left bottom, from(rgba(178,114,39,.8)),
+  // to(rgba(255,164,57,0.8))
+  // );
+  background-color: rgba(255, 168, 0,.8);
+  box-shadow: 0 0 10px black;
+  border-radius: 25px;
+  text-align: center;
+  opacity: 40%;
+  color: white;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 7px;
+}
+
+.index-movies{
+  display: inline;
+}
+
+.show-image{
+  padding: 50px;
+}
+
+.description{
+  padding:20px;
+  margin-left: 20px;
+}

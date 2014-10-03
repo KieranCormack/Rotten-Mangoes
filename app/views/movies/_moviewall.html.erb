@@ -1,8 +1,19 @@
-<% @movies.each do |movie| %>
-  <%= link_to image_tag(movie.image.thumb.to_s), movie_path(movie) %>
-  <h2><%= link_to movie.title, movie_path(movie) %></h2>
-  <h3><%= formatted_date(movie.release_date) %></h3>
-  <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-  <p><%= movie.description %></p>
-  <hr>
-<% end %>
+
+  <% @movies.each do |movie| %>
+    <div class='row'>
+      <div class='col-md-2'>
+        <%= link_to image_tag(movie.image.thumb.to_s), movie_path(movie) %>
+      </div>
+      <div class='col-md-8 description'>
+        <h3>
+          <p><%= link_to movie.title, movie_path(movie) %></p>
+          <p><%= formatted_date(movie.release_date) %></p>
+          <p>Dir. <%= movie.director %> </p>
+          <p>Runtime : <%= movie.runtime_in_minutes %> minutes</p>
+          <p><%= movie.description %></p>
+        </h3>
+      </div>
+    </div>
+    <hr>
+  <% end %>
+

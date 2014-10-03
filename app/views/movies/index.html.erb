@@ -1,14 +1,16 @@
 <h1>Rotten Mangoes</h1>
 
 <!-- Top Bar with seach and submission form -->
-  <%= form_tag movies_path, method: :get do %>
-    <p>Whacha Looking For?!(you can search for movies by director, title and duration...)</p>
+  <%= form_tag movies_path, :class => 'inline-form', method: :get do %>
+  <div class='header-div'>
+    <p>Whacha Looking For?!  (you can search for movies by director, title and duration...)</p>
     <p>
-      <%= text_field_tag :search, params[:search] %>
+      <%= text_field_tag :search, params[:search], :class => 'form-control' %>
       <%= select_tag :duration, options_for_select([[],['Under 90 minutes'], ['between 90 and 120 minutes'], ['over 120 minutes']]) %>
-      <%= submit_tag "Search", :name => nil %>
-      Or you can: <%= link_to "Submit a movie!", new_movie_path %>
-    </p>
+      <%= submit_tag "Search", :name => nil, :class => "btn btn-danger" %>
+      </p>
+      <p>Or you can: <%= link_to "Submit a movie!", new_movie_path %></p>
+  </div>
   <% end %>
 <hr>
 
