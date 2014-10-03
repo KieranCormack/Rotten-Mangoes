@@ -6,17 +6,13 @@
 @import "users";
 
 .background-color{
-  background-color: rgba(242, 251, 244, .6);
+  background-color: rgba(200, 187, 173, .6);
 }
 
 hr {
-    margin: 20px 0px 25px 0px;   
-    height: 50px;    
-    background-image: url('mago.png');
-    background-size: auto 50px;
-    background-repeat: repeat-x;
-    overflow:hidden;
-    border-style: hidden;
+  background:url(hr-img.png) no-repeat top center;
+  height:42px;
+  border:none !important;
 }
 
 h1 {
@@ -28,6 +24,12 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 .inside-color{
+  background-color: white;
+  box-shadow: 0 0 10px #000;
+}
+
+.footer-color{
+  padding:-10px;
   background-color: white;
   box-shadow: 0 0 10px #000;
 }

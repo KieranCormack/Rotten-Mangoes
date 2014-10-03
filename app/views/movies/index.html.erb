@@ -6,10 +6,10 @@
     <p>Whacha Looking For?!  (you can search for movies by director, title and duration...)</p>
     <p>
       <%= text_field_tag :search, params[:search], :class => 'form-control' %>
-      <%= select_tag :duration, options_for_select([[],['Under 90 minutes'], ['between 90 and 120 minutes'], ['over 120 minutes']]) %>
+      <%= select_tag :duration, options_for_select([[],['Under 90 minutes'], ['between 90 and 120 minutes'], ['over 120 minutes']]), :class => 'form-control search-dropdown' %>
       <%= submit_tag "Search", :name => nil, :class => "btn btn-danger" %>
       </p>
-      <p>Or you can: <%= link_to "Submit a movie!", new_movie_path %></p>
+      <h5>Or you can: <%= link_to "Submit a movie!", new_movie_path %></h5>
   </div>
   <% end %>
 <hr>
