@@ -20,8 +20,17 @@ class ApplicationController < ActionController::Base
     @admin ||= @current_user.admin == true if @current_user
   end
 
+  def impersonating?
+    actual_user.present?
+  end
+
+  def actual_user
+    @actual_user ||= User.find(session[:admin]) if session[:admin]
+  end
 
   helper_method :current_user
   helper_method :admin?
+  helper_method :impersonating?
+  helper_method :actual_user
 
 end
