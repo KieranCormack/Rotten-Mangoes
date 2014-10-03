@@ -1,11 +1,12 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <div class="well">
-        <%= link_to "Back to all movies", movies_path, :class => "btn btn-danger" %>
+    <div class="well centered">
+        <%= link_to "Back to all movies", movies_path, :class => "btn btn-danger centered" %>
       </div>
     </div>
   </div>
+  <hr>
   <div class='row'>
     <div class='col-lg-4'>
       <%= image_tag(@movie.image.big.to_s, :class =>'show-image img img-thumbnail') %>

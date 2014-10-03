@@ -1,7 +1,9 @@
 <h1>Rotten Mangoes</h1>
+<!-- showing current User-->
+<!-- above code is no good! -->
 
 <!-- Top Bar with seach and submission form -->
-  <%= form_tag movies_path, :class => 'inline-form', method: :get do %>
+<%= form_tag movies_path, :class => 'inline-form', method: :get do %>
   <div class='header-div'>
     <p>Whacha Looking For?!  (you can search for movies by director, title and duration...)</p>
     <p>
@@ -12,7 +14,12 @@
       <h5>Or you can: <%= link_to "Submit a movie!", new_movie_path %></h5>
   </div>
   <% end %>
+<h4 class='centered'><% if current_user %>
+  HEY <%= current_user.firstname %>!
+  <% end %>
+</h4>
 <hr>
+
 
 <!-- Movie Display -->
 <%= render partial: 'moviewall' %>

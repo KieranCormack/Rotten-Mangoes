@@ -20,6 +20,8 @@ class ApplicationController < ActionController::Base
     @admin ||= @current_user.admin == true if @current_user
   end
 
+
   helper_method :current_user
   helper_method :admin?
+
 end

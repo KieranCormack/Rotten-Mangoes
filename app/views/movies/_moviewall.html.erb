@@ -10,9 +10,11 @@
           <h4><%= formatted_date(movie.release_date) %></h4>
           <h4>Dir. <%= movie.director %> </h4>
           <h4>Runtime : <%= movie.runtime_in_minutes %> minutes</h4>
-          <h4><%= movie.description %></h4>
+          <h5><%= movie.description %></h5>
       </div>
     </div>
     <hr>
   <% end %>
-
+  <h2 class='pagination-button'>
+<%= paginate @movies%>
+</h2>

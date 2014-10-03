@@ -19,10 +19,20 @@ h1 {
   text-align: center;
   font-size: 45px;
   padding-bottom: 10px;
-  background: -webkit-linear-gradient( #ffa439, #333);
+  background: -webkit-linear-gradient(#ffa439, #333);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+h1:hover{
+  transition-duration: 1s;
+  text-align: center;
+  font-size: 45px;
+  padding-bottom: 10px;
+  background: -webkit-linear-gradient(#333, #ffa439);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .inside-color{
   background-color: white;
   box-shadow: 0 0 10px #000;
@@ -32,6 +42,7 @@ h1 {
   padding:-10px;
   background-color: white;
   box-shadow: 0 0 10px #000;
+  border-radius: none;
 }
 
 .col-centered{
